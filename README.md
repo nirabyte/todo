@@ -1,6 +1,6 @@
 # Todo TUI
 
-A simple, interactive, TUI todo list manager for the terminal.
+A simple, interactive TUI todo list manager for the terminal.
 
 ![Preview](asssets/preview.gif)
 
