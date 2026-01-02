@@ -200,25 +200,17 @@ You can backup this file, edit it manually, or move it to another computer.
 
 ```
 todo/
-├── .github/             # GitHub templates and configs
-├── assets/              # Images and GIFs
-├── build/               # Build output
-├── cmd/                 # Application entry points
-│   └── todo/
-├── internal/            # Internal packages
-│   ├── app/             # App initialization
-│   ├── config/          # Configuration
-│   ├── models/          # Data models & logic
-│   ├── themes/          # Theme definitions
-│   └── styles/          # UI styles
-├── releases/            # Release artifacts
-├── .gitignore
-├── CONTRIBUTING.md
-├── LICENSE
-├── Makefile
-├── build.sh
-├── go.mod
-└── go.sum
+├── assets/          # Images/icons 
+├── cmd/todo/        
+│   └── main.go      # Entry point
+├── internal/
+│   ├── app/         # App setup
+│   ├── config/      # Config handling
+│   ├── models/      # Data & logic
+│   └── ui/          # UI code
+├── go.mod           # Go module dependencies
+├── go.sum           # Dependency checksums
+└── README.md        
 ```
 
 ### Building for All Platforms
