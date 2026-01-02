@@ -1,230 +1,223 @@
 # Todo TUI
 
-A simple, interactive TUI todo list manager for the terminal.
+A terminal-based todo list manager with animations, themes, and notifications.
 
 ![Preview](assets/preview.gif)
 
 ## Features
 
-- Clean, colorful terminal interface with 10 built-in color themes
+- 10 color themes (Catppuccin, Nord, Gruvbox, Dracula, and more)
 - 30 unique completion animations
-- Timer notifications with desktop alerts (Windows, macOS, Linux)
-- Flexible inline editing and sorting modes (Off, Todo First, Done First)
-- Persistent storage using JSON format
-- Smooth animations for task completion and deletion
+- Timer notifications with desktop alerts
+- Inline editing for quick task management
+- Sorting modes to organize tasks
+- Automatic save functionality
 
-## Installation
+## Quick Start
 
-### Go Install
+### Download Pre-built Binary (Recommended)
 
-If you have Go installed, you can install it directly:
+1. Go to [Releases](https://github.com/nirabyte/todo/releases)
+2. Download the folder for your system:
+   - **Windows**: `windows-amd64` folder → contains `todo.exe`
+   - **macOS (Intel)**: `darwin-amd64` folder → contains `todo`
+   - **macOS (Apple Silicon)**: `darwin-arm64` folder → contains `todo`
+   - **Linux (64-bit)**: `linux-amd64` folder → contains `todo`
+   - **Linux (32-bit)**: `linux-386` folder → contains `todo`
+   - **Linux (ARM)**: `linux-arm64` or `linux-arm` folder → contains `todo`
+
+3. Extract the folder and run:
+   - **Windows**: Double-click `todo.exe` or run `.\todo.exe` in terminal
+   - **macOS/Linux**: Run `./todo` in terminal (you may need to `chmod +x todo` first)
+
+### Install with Go
+
+If you have Go installed:
 
 ```bash
 go install github.com/nirabyte/todo@latest
 ```
 
-OR get the latest binary from [Releases](https://github.com/nirabyte/todo/releases).
-
-### Build from Source
-
-Clone the repository:
-
-```bash
-git clone https://github.com/nirabyte/todo.git
-cd todo
-```
-
-#### Using Make (Recommended)
-
-```bash
-# Build for current platform
-make build
-
-# Build for all platforms (Windows, macOS, Linux - multiple architectures)
-make build-all
-
-# Clean build artifacts
-make clean
-```
-
-#### Using Build Scripts
-
-**Windows (PowerShell):**
-```powershell
-# Build for current platform
-.\build.ps1
-
-# Build for all platforms
-.\build.ps1 all
-```
-
-**Unix/Linux/macOS:**
-```bash
-# Make script executable (first time only)
-chmod +x build.sh
-
-# Build for current platform
-./build.sh
-
-# Build for all platforms
-./build.sh all
-```
-
-#### Manual Build
-
-```bash
-# Build for current platform
-go build -o build/todo ./cmd/todo
-
-# Build for specific platform (example: Windows amd64)
-GOOS=windows GOARCH=amd64 go build -o build/todo-windows-amd64.exe ./cmd/todo
-```
-
-Binaries will be placed in the `build/` directory. Move the binary to a location in your PATH for global access, or run it directly from the build directory.
-
-## Project Structure
-
-```
-todo/
-├── cmd/
-│   └── todo/
-│       └── main.go          # Application entry point
-├── internal/
-│   ├── app/                 # App initialization
-│   ├── config/              # Configuration constants
-│   ├── models/              # Data models and business logic
-│   ├── themes/              # Theme definitions
-│   └── styles/              # Style definitions
-├── assets/                  # Static assets (gifs, images)
-├── build/                   # Build output directory
-├── Makefile                 # Build automation
-├── build.ps1                # PowerShell build script
-└── build.sh                 # Bash build script
-```
-
-## Usage
-
-Start the application by running:
-
+Then run:
 ```bash
 todo
 ```
 
-The application launches with an interactive terminal interface. On first run, you'll see helpful hints to get started.
+### Build from Source
 
-## Controls
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/nirabyte/todo.git
+   cd todo
+   ```
+
+2. Build for your platform:
+   ```bash
+   # Using Make (if available)
+   make build
+   
+   # Or manually
+   go build -o build/todo ./cmd/todo
+   ```
+
+3. Run it:
+   ```bash
+   # Windows
+   .\build\todo.exe
+   
+   # macOS/Linux
+   ./build/todo
+   ```
+
+## Requirements
+
+- A terminal that supports colors (most modern terminals work)
+- A Nerd Font installed (for icons and symbols to display correctly)
+  - Download from [nerdfonts.com](https://www.nerdfonts.com/)
+  - Popular choices: FiraCode, JetBrains Mono, Hack, Meslo
+- Desktop notifications enabled (optional, for timer alerts)
+- Go 1.25.5 or later (only if building from source)
+
+## Usage
+
+### Starting the App
+
+Run:
+```bash
+todo
+```
+
+On first launch, you'll see helpful hints to get started.
 
 ### Navigation
 
-| Key       | Action           |
-| --------- | ---------------- |
-| `↑` / `k` | Move cursor up   |
-| `↓` / `j` | Move cursor down |
-| `q`       | Quit application |
-| `Ctrl+C`  | Quit application |
+| Key | Action |
+|-----|--------|
+| `↑` or `k` | Move up |
+| `↓` or `j` | Move down |
+| `q` or `Ctrl+C` | Quit |
 
-### Task Management
+### Managing Tasks
 
-| Key     | Action                                 |
-| ------- | -------------------------------------- |
-| `n`     | Create a new task                      |
-| `e`     | Edit the selected task                 |
-| `d`     | Delete the selected task               |
-| `Space` | Toggle task completion (check/uncheck) |
-| `Enter` | Confirm input when editing or creating |
-| `Esc`   | Cancel editing or creating             |
+| Key | Action |
+|-----|--------|
+| `n` | New task |
+| `e` | Edit selected task |
+| `d` | Delete selected task |
+| `Space` | Toggle complete/uncomplete |
+| `Enter` | Confirm (when editing) |
+| `Esc` | Cancel (when editing) |
 
 ![Edit Task](assets/edit.gif)
 
-### Timer and Notifications
+### Setting Timers
 
-| Key | Action                                         |
-| --- | ---------------------------------------------- |
-| `@` | Set a timer notification for the selected task |
+Press `@` on any task to set a reminder timer.
 
-When setting a timer, enter a duration using Go's time duration format. Examples:
+**Examples:**
+- `10m` = 10 minutes
+- `1h30m` = 1 hour 30 minutes
+- `45s` = 45 seconds
+- `2h15m30s` = 2 hours 15 minutes 30 seconds
 
-- `10m` - 10 minutes
-- `1h30m` - 1 hour 30 minutes
-- `45s` - 45 seconds
-- `2h15m30s` - 2 hours 15 minutes 30 seconds
-
-When a timer expires, you'll receive a desktop notification for the task. The timer countdown is displayed next to the task until it expires or the task is marked as complete.
+When the timer expires, you'll get a desktop notification. The countdown displays next to the task.
 
 ![Timer Notification](assets/timer.gif)
 
 ### Customization
 
-| Key | Action                         |
-| --- | ------------------------------ |
-| `t` | Cycle through available themes |
-| `s` | Cycle through sorting modes    |
+| Key | Action |
+|-----|--------|
+| `t` | Cycle through themes |
+| `s` | Cycle through sorting modes |
 
 ## Themes
 
-Todo CLI includes 10 carefully curated color themes:
+Choose from 10 color themes:
 
-1. **Catppuccin** - Soothing pastel theme
-2. **Nord** - Arctic, north-bluish color palette
-3. **Gruvbox** - Retro groove color scheme
-4. **Dracula** - Dark theme for the code-editing hours
-5. **Tokyo Night** - Clean, dark theme inspired by Tokyo
-6. **Rose Pine** - All natural pine, faux fur and a bit of soho vibes
-7. **Everforest** - Comfortable and pleasant color scheme
-8. **One Dark** - Atom's One Dark syntax theme
-9. **Solarized** - Precision colors for machines and people
-10. **Kanagawa** - NeoVim dark colorscheme inspired by Katsushika Hokusai
+1. **Catppuccin** - Soothing pastel colors
+2. **Nord** - Cool arctic blues
+3. **Gruvbox** - Retro warm tones
+4. **Dracula** - Dark purple theme
+5. **Tokyo Night** - Clean dark theme
+6. **Rose Pine** - Natural earthy colors
+7. **Everforest** - Comfortable green tones
+8. **One Dark** - Popular dark theme
+9. **Solarized** - Easy on the eyes
+10. **Kanagawa** - Inspired by Japanese art
 
-Press `t` to cycle through themes. Your theme preference is saved automatically.
+Press `t` to cycle through themes. Your choice is saved automatically.
 
 ![Theme Selection](assets/theme.gif)
 
 ## Sorting Modes
 
-Three sorting modes are available:
+Organize your tasks with three sorting options:
 
-- **Off** - No sorting (default order based on task creation)
-- **Todo First** - Incomplete tasks appear at the top
-- **Done First** - Completed tasks appear at the top
+- **Off** - Keep tasks in the order you created them
+- **Todo First** - Incomplete tasks at the top
+- **Done First** - Completed tasks at the top
 
-Press `s` to cycle through sorting modes. Your preference is saved automatically.
+Press `s` to cycle through modes. Your preference is saved.
 
 ![Sorting Modes](assets/sort.gif)
 
 ## Completion Animations
 
-When you mark a task as complete, one of 30 unique animations plays. These include:
+When you complete a task, one of 30 unique animations plays. These include:
 
 - Sparkle effects
-- Matrix-style character transitions
-- Wipe animations (left/right)
-- Rainbow color transitions
+- Rainbow transitions
 - Typewriter effects
-- Binary digit animations
-- And many more
+- Matrix-style animations
+- And 26 more unique effects
 
-Each completion animation is randomly selected, ensuring a unique visual experience for every completed task.
+Each animation is randomly selected for a fresh experience.
 
 ![Completion Animations](assets/animation.gif)
 
 ## Data Storage
 
-Tasks are stored locally in a `todos.json` file in the same directory where you run the application. The file includes:
+Your tasks are saved automatically in a file called `todos.json` in the same directory where you run the app.
 
-- All tasks with their titles, completion status, and due dates
-- Your selected theme preference
-- Your selected sort mode preference
+**What's saved:**
+- All your tasks (title, completion status, due dates)
+- Your selected theme
+- Your sorting preference
 
-The data persists between sessions, so your tasks will be available the next time you run the application. The JSON format makes it easy to backup, export, or modify your tasks if needed.
-
-## Requirements
-
-- Go 1.25.5 or later (for building from source)
-- A terminal that supports ANSI color codes
-- A Nerd Font installed (for proper icon and symbol rendering)
-- Desktop notification support (optional, for timer notifications)
+You can backup this file, edit it manually, or move it to another computer.
 
 ## Development
+
+### Project Structure
+
+```
+todo/
+├── cmd/todo/          # Application entry point
+├── internal/          # Internal packages
+│   ├── app/          # App initialization
+│   ├── config/       # Configuration
+│   ├── models/       # Data models & logic
+│   ├── themes/       # Theme definitions
+│   └── styles/       # UI styles
+├── assets/           # Images and GIFs
+└── build/            # Build output
+```
+
+### Building for All Platforms
+
+```bash
+# Build all platforms (requires Make)
+make build-all
+
+# Or prepare release binaries with simple names
+make release
+```
+
+This creates binaries for:
+- Windows (amd64, 386, arm64)
+- macOS (amd64, arm64)
+- Linux (amd64, 386, arm64, arm)
 
 ### Running Tests
 
@@ -234,23 +227,17 @@ make test
 go test ./...
 ```
 
-### Building for Multiple Platforms
-
-The build scripts support building for multiple platforms and architectures:
-
-- **Windows**: amd64, 386, arm64
-- **macOS**: amd64, arm64
-- **Linux**: amd64, 386, arm64, arm
-
-Use `make build-all` or the respective build script with `all` argument to build for all supported platforms.
-
-## Built With
+## Technologies Used
 
 - **Go** - Programming language
-- **Bubble Tea** - TUI Framework
+- **Bubble Tea** - TUI framework
 - **Lip Gloss** - Styling library
-- **Beeep** - Cross-platform desktop notifications
+- **Beeep** - Desktop notifications
 
 ## License
 
 This project is open source and available under the MIT License.
+
+## Contributing
+
+Contributions are welcome! Feel free to open issues or submit pull requests.
