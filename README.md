@@ -249,7 +249,6 @@ This creates binaries for:
 - [ ] Extend timers to days/weeks/months and add absolute due dates with visual indicators
 - [ ] Add markdown support
 - [ ] JSON/Markdown import/export feature
-- [ ] Display active filename in header
 - [ ] More UI/UX improvements 
 
 ## Built With
