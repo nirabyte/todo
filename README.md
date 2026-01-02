@@ -200,8 +200,8 @@ You can backup this file, edit it manually, or move it to another computer.
 
 ```
 todo/
-├── assets/          # Images/icons 
-├── cmd/todo/        
+├── assets/          # Images/icons
+├── cmd/todo/
 │   └── main.go      # Entry point
 ├── internal/
 │   ├── app/         # App setup
@@ -210,7 +210,7 @@ todo/
 │   └── ui/          # UI code
 ├── go.mod           # Go module dependencies
 ├── go.sum           # Dependency checksums
-└── README.md        
+└── README.md
 ```
 
 ### Building for All Platforms
@@ -265,3 +265,9 @@ Please see the full contribution guidelines in `CONTRIBUTING.md`.
 This project is licensed under the MIT License — see the `LICENSE` file for details.
 
 [LICENSE](LICENSE)
+
+## Contact
+
+If you have questions, suggestions, or just want to chat, feel free to reach out to me on Discord:
+
+[Message me on Discord](https://discord.com/users/863252422913687614)
