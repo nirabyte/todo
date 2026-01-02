@@ -219,13 +219,6 @@ This creates binaries for:
 - macOS (amd64, arm64)
 - Linux (amd64, 386, arm64, arm)
 
-### Running Tests
-
-```bash
-make test
-# or
-go test ./...
-```
 
 ## Technologies Used
 
@@ -234,9 +227,6 @@ go test ./...
 - **Lip Gloss** - Styling library
 - **Beeep** - Desktop notifications
 
-## License
-
-This project is open source and available under the MIT License.
 
 ## Contributing
 
