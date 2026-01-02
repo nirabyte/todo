@@ -200,15 +200,25 @@ You can backup this file, edit it manually, or move it to another computer.
 
 ```
 todo/
-├── cmd/todo/          # Application entry point
-├── internal/          # Internal packages
-│   ├── app/          # App initialization
-│   ├── config/       # Configuration
-│   ├── models/       # Data models & logic
-│   ├── themes/       # Theme definitions
-│   └── styles/       # UI styles
-├── assets/           # Images and GIFs
-└── build/            # Build output
+├── .github/             # GitHub templates and configs
+├── assets/              # Images and GIFs
+├── build/               # Build output
+├── cmd/                 # Application entry points
+│   └── todo/
+├── internal/            # Internal packages
+│   ├── app/             # App initialization
+│   ├── config/          # Configuration
+│   ├── models/          # Data models & logic
+│   ├── themes/          # Theme definitions
+│   └── styles/          # UI styles
+├── releases/            # Release artifacts
+├── .gitignore
+├── CONTRIBUTING.md
+├── LICENSE
+├── Makefile
+├── build.sh
+├── go.mod
+└── go.sum
 ```
 
 ### Building for All Platforms
@@ -247,7 +257,7 @@ This creates binaries for:
 
 ## Built With
 
-- **Go** 
+- **Go**
 - **Bubble Tea** - TUI framework
 - **Lip Gloss** - Styling library
 - **Beeep** - Desktop notifications
