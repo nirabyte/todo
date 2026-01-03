@@ -236,20 +236,25 @@ This creates binaries for:
 
 ## Roadmap
 
-- [x] Core app: tasks, themes, animations, timers, inline edit, sorting
+- [x] Core app functionality: tasks, themes, animations, timers, inline edit, sorting
 - [x] JSON-based persistence (`todos.json`) with automatic save
-- [x] 10 color themes (Catppuccin, Nord, Gruvbox, Tokyo Night,etc)
+- [x] 10 color themes (Catppuccin, Nord, Gruvbox, Tokyo Night, etc.)
 - [x] 30 unique completion animations
 - [x] Timer reminders with desktop notifications
 - [x] Inline task editing
-- [x] Sorting modes (Off / Todo First / Done First)
-- [ ] Add search/filter option
-- [ ] Tasks with description,  status indicator and active filename in header
-- [ ] Add CLI arguments for dates/days, todolist, file selection, and import/export commands
-- [ ] Extend timers to days/weeks/months and add absolute due dates with visual indicators
-- [ ] Add markdown support
+- [x] Sorting modes: Off / Todo First / Done First
+- [ ] Tasks with description, status indicator, and active filename in header
+- [ ] Support for subtasks / nested tasks
+- [ ] Search/filter tasks
+- [ ] Markdown support for task descriptions
+- [ ] Extend timers to days/weeks/months
+- [ ] Add absolute due dates with visual indicators
 - [ ] JSON/Markdown import/export feature
-- [ ] More UI/UX improvements 
+- [ ] Add CLI arguments for dates/days, todolist, file selection, import/export commands
+- [ ] Syncing across devices (cloud)
+- [ ] Emacs Org mode integration
+- [ ] Performance improvements (faster load, reduced memory usage)
+- [ ] More UI/UX refinements: animations, interactions, layout, accessibility
 
 ## Built With
 
