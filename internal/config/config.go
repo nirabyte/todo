@@ -1,7 +1,6 @@
 package config
 
 import (
-	"os"
 	"time"
 )
 
@@ -13,7 +12,7 @@ const (
 
 var (
 	// Data file configuration
-	DataPath    = getEnvOrDefault("DATA_PATH", "data")
+	DataPath    = getEnvOrDefault("DATA_PATH", getDataHomeOrDefault("data"))
 	DataFile    = getEnvOrDefault("DATA_FILE", "todos.json")
 	StorageType = "file" // file, s3, mongodb, postgres
 
@@ -33,10 +32,3 @@ var (
 	PostgresDSN   = "postgres://user:pass@localhost/todo?sslmode=disable"
 	PostgresTable = "tasks"
 )
-
-func getEnvOrDefault(key, defaultValue string) string {
-	if value := os.Getenv(key); value != "" {
-		return value
-	}
-	return defaultValue
-}
